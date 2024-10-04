@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Speech.Recognition;
 using System.Speech.Synthesis;
+
 
 namespace MistsOfTirnaScithe 
 {
@@ -9,7 +11,9 @@ namespace MistsOfTirnaScithe
         {
             SpeechSynthesizer synth = new SpeechSynthesizer();
             synth.SetOutputToDefaultAudioDevice();
+            SpeechRecognitionEngine recognize = new SpeechRecognitionEngine(new System.Globalization.CultureInfo("en-US"));
             
+
 
             List<Input> list = new List<Input>();
 
@@ -25,6 +29,8 @@ namespace MistsOfTirnaScithe
 
             Console.WriteLine(megoldas);
             synth.Speak(megoldas);
+
+            //todo: RESET, NEXT, SOLVE
         }
     }
 }
