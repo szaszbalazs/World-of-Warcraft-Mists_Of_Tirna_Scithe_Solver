@@ -1,11 +1,16 @@
 ﻿using System;
+using System.Speech.Synthesis;
 
-namespace MistsOfTirnaScithe // Note: actual namespace depends on the project name.
+namespace MistsOfTirnaScithe 
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            SpeechSynthesizer synth = new SpeechSynthesizer();
+            synth.SetOutputToDefaultAudioDevice();
+            
+
             List<Input> list = new List<Input>();
 
             //circle, shape, Colored
@@ -19,6 +24,7 @@ namespace MistsOfTirnaScithe // Note: actual namespace depends on the project na
             string megoldas = solver.Solve(list);
 
             Console.WriteLine(megoldas);
+            synth.Speak(megoldas);
         }
     }
 }
